@@ -14,3 +14,5 @@ if (string.IsNullOrEmpty(logFilePath) || string.IsNullOrEmpty(outputFilePath)
     Console.WriteLine("Missing required parameters");
     return;
 }
+
+List<string> logLines = FileHandler.ReadLogFromFile(logFilePath);
