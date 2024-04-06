@@ -15,4 +15,8 @@ if (string.IsNullOrEmpty(logFilePath) || string.IsNullOrEmpty(outputFilePath)
     return;
 }
 
-List<string> logLines = FileHandler.ReadLogFromFile(logFilePath);
+var logLines = FileHandler.ReadLogFromFile(logFilePath);
+
+var ipAddressesInRange = IPFilter.FilterLogData(logLines, addressStart, addressMask, timeStart, timeEnd);
+
+FileHandler.SaveResults(ipAddressesInRange, outputFilePath);
